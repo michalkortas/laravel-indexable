@@ -1,0 +1,14 @@
+{
+    "name": "michalkortas/laravel-indexable",
+    "description": "Create table with data directly from your Model",
+    "type": "laravel-library, table",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michal Kortas",
+            "email": "michal@webroad.pl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

@@ -1,7 +1,7 @@
 {
     "name": "michalkortas/laravel-indexable",
     "description": "Create table with data directly from your Model",
-    "type": "laravel-library, table",
+    "type": "laravel-library",
     "license": "MIT",
     "authors": [
         {

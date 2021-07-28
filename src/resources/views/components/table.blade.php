@@ -4,7 +4,7 @@
 
     @if($model)
 
-        <table class="table table-hover table-borderless table-sticky">
+        <table class="table table-hover table-borderless table-sticky @if(!$fullscreen) mb-0 @endif">
             <thead class="thead-dark thead-sticky">
             <tr>
                 @if($fullscreen)
@@ -93,7 +93,7 @@
 
 
 
-<div class="px-4 py-3">
+<div class="px-4 py-3 @if(!$fullscreen) d-none @endif">
     @if($items instanceof \Illuminate\Pagination\LengthAwarePaginator )
         {{ $items->appends(request()->query())->links() }}
     @endif

@@ -7,8 +7,9 @@
         <table class="table table-hover table-borderless table-sticky">
             <thead class="thead-dark thead-sticky">
             <tr>
-
+                @if($fullscreen)
                 <th></th>
+                @endif
                 @foreach($indexable ?? [] as $path => $name)
                     @if(is_array($name))
                         <th colspan="{{count($name)}}">{{$path}}</th>
@@ -24,8 +25,9 @@
             </thead>
             @if($twoDimensionalHeader)
                 <thead class="thead-dark thead-sticky">
-
+                @if($fullscreen)
                 <th></th>
+                @endif
                 @foreach($indexable ?? [] as $path => $name)
                     @if(is_array($name))
                         @foreach($name ?? [] as $subPath => $subName)
@@ -42,6 +44,7 @@
             <tbody>
             @foreach($items ?? [] as $item)
                 <tr>
+                    @if($fullscreen)
                     <td class="td-actions">
                         <div class="btn-toolbar" role="toolbar" aria-label="Możliwe akcje">
                             <div class="btn-group btn-group-sm" role="group" aria-label="Możliwe akcje">
@@ -70,7 +73,7 @@
                         </div>
 
                     </td>
-
+                    @endif
                     @foreach($columns ?? [] as $path => $name)
                         <x-indexable-td
                             :columns="$columns"

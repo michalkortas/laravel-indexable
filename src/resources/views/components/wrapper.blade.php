@@ -1,8 +1,10 @@
 <div class="d-sm-flex justify-content-between">
 
-    <h1 class="h5 mb-0 text-gray-800">
+    <h1 class="h5 mb-0 text-gray-800 @if(!$fullscreen) mb-2 @endif">
         {{$title}} <small class="text-muted">{{$description}}</small>
     </h1>
+
+    @if($fullscreen)
     <div class="d-flex justify-content-end">
         <div>
             @if($create)
@@ -24,10 +26,11 @@
             <x-index.pagination :attributes="$attributes" />
         </div>
     </div>
-
+    @endif
 </div>
-<div class="card shadow mb-4 index-full-screen">
+<div class="card shadow mb-4 @if($fullscreen) index-full-screen @else index-normal-screen @endif">
     <div class="card-body p-0">
+        @if($fullscreen)
         <div class="table-wait w-100 h-100 d-flex justify-content-center align-items-center">
             <div class="text-center">
                 <div class="spinner-border text-primary mb-2 font-weight-bold"  style="width: 5rem; height: 5rem;" role="status">
@@ -37,7 +40,8 @@
             </div>
 
         </div>
-        <div class="table-data d-none">
+        @endif
+        <div class="table-data @if($fullscreen) d-none @endif">
             <x-indexable-table
                 :model="$model"
                 :modelName="$modelName"
@@ -46,6 +50,7 @@
                 :tableFilters="$tableFilters"
                 :indexable="$indexable"
                 :actionButtons="$actionButtons"
+                :fullscreen="$fullscreen"
                 >
 
                 @isset($actions)

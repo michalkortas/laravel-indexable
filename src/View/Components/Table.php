@@ -20,6 +20,7 @@ class Table extends Component
     public $requestFilters;
     public $twoDimensionalHeader;
     public $actionButtons;
+    public $fullscreen;
 
     public function __construct(
         $model = [],
@@ -28,6 +29,7 @@ class Table extends Component
         $indexable = [],
         $tableFilters = false,
         $actionButtons = false,
+        $fullscreen = false,
         $resource = ''
     )
     {
@@ -41,6 +43,7 @@ class Table extends Component
         $this->tableFilters = $tableFilters;
         $this->requestFilters = \request()->only('tableFilters')['tableFilters'] ?? [];
         $this->actionButtons = $actionButtons;
+        $this->fullscreen = $fullscreen;
     }
 
     /**

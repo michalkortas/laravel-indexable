@@ -21,6 +21,7 @@ class Wrapper extends Component
     public $indexable;
     public $model;
     public $modelName;
+    public $fullscreen;
 
     public function __construct(
         $title = '',
@@ -32,7 +33,8 @@ class Wrapper extends Component
         $actionButtons = true,
         $items = [],
         $requestFilters = [],
-        $modelName = []
+        $modelName = [],
+        $fullscreen = true
     )
     {
         $this->create = $create;
@@ -47,6 +49,7 @@ class Wrapper extends Component
         $this->indexable = $this->getIndexable($this->model);
         $this->title = $title ?? $this->model->indexTitle ?? '';
         $this->description = $description ?? $this->model->indexDescription ?? '';
+        $this->fullscreen = $fullscreen;
     }
 
     /**

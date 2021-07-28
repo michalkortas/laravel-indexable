@@ -34,8 +34,12 @@
 }
 
 .index-full-screen {
-    overflow: scroll;
+    overflow: auto;
     height: calc(100vh - 182px);
+}
+
+.index-normal-screen {
+    overflow: auto;
 }
 
 .index {
@@ -93,9 +97,9 @@
         position: sticky;
         left: 0;
         z-index: 25;
-        
+
     }
-    
+
     [scope=row]:not(.td-actions) {
         background-color: #ffffff !important;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
@@ -103,9 +107,9 @@
         font-size: 0.8rem;
         a {color: #000;}
     }
-    
+
     [scope=row]:not(.td-actions) {
-    
+
     }
 }
 
@@ -117,18 +121,18 @@
         max-width: 150px !important;
         font-size: 0.8rem;
     }
-    
+
     .td-truncate {
         max-width: 200px !important;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    
+
     tbody tr {
         transition: color 0.2s;
         td, th.td-actions {
-            
+
             border-bottom: 1px solid #eee !important;
         }
     }

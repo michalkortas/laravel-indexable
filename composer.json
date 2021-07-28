@@ -10,5 +10,17 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "michalkortas\\LaravelIndexable\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "michalkortas\\LaravelIndexable\\LaravelIndexableServiceProvider"
+            ]
+        }
+    }
 }

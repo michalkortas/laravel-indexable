@@ -1,0 +1,135 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 3px;
+    .form-group {
+        margin-bottom: 0;
+    }
+    td, th {
+        vertical-align: middle;
+        font-size: 0.7rem;
+        padding: 0.7rem;
+        transition: color 0.2s;
+    }
+    th {
+        font-size: 0.9rem;
+    }
+}
+
+.table tr td:nth-child(2) {
+    font-weight: bold;
+    background-color: #daf3ff !important;
+}
+
+.table tr.row-selected td {
+    background-color: #daf3ff !important;
+}
+
+.table tr:hover th[scope=row]:not(.td-actions) {
+    background-color: #464a53 !important;
+}
+
+.table tr.row-selected th[scope=row]:not(.td-actions) {
+    background-color: #464a53 !important;
+}
+
+.index-full-screen {
+    overflow: scroll;
+    height: calc(100vh - 182px);
+}
+
+.index {
+    overflow: scroll;
+}
+
+.table-hover tbody tr {
+    transition: 0.2s;
+}
+.table-hover tbody tr:hover {
+    z-index: 9;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.td-main {
+    font-weight: bold;
+}
+.td-min {
+    width: 10px;
+    white-space: nowrap;
+}
+.td-actions {
+    width: 10px;
+    .btn {
+        font-size: 0.7rem;
+    }
+    * {white-space: nowrap}
+}
+
+.filters .form-group {
+    margin-bottom: 0.25rem;
+    margin-right: 0.25rem;
+}
+.table-filters .dropdown-menu {
+    z-index: 1000 !important;
+}
+.table thead {
+    th, tr {
+        font-size: 0.7rem !important;
+        font-weight: normal;
+    }
+}
+
+.thead-sticky th {
+    font-weight: 300;
+    background-color: #5a5c69 !important;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.2);
+    z-index: 30;
+}
+
+.table.table-sticky {
+    [scope=row] {
+        position: sticky;
+        left: 0;
+        z-index: 25;
+        
+    }
+    
+    [scope=row]:not(.td-actions) {
+        background-color: #ffffff !important;
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+        color: #000;
+        font-size: 0.8rem;
+        a {color: #000;}
+    }
+    
+    [scope=row]:not(.td-actions) {
+    
+    }
+}
+
+.table {
+    .btn-truncate {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px !important;
+        font-size: 0.8rem;
+    }
+    
+    .td-truncate {
+        max-width: 200px !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    tbody tr {
+        transition: color 0.2s;
+        td, th.td-actions {
+            
+            border-bottom: 1px solid #eee !important;
+        }
+    }
+}

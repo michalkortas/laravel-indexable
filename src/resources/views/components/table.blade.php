@@ -64,7 +64,7 @@
                                 @endif
 
                                 @if(Route::has($resource .'.destroy'))
-                                    <button data-id="{{$item->id}}" data-table="{{$resource}}" data-toggle="modal" data-target="#confirmDeleteModal" class="btn btn-danger shadow-sm">
+                                    <button type="button" data-id="{{$item->id}}" data-table="{{$resource}}" data-toggle="modal" data-target="#confirmDeleteModal" class="btn btn-danger shadow-sm">
                                         <i class="fas fa-trash-alt"></i>
                                         Usuń
                                     </button>

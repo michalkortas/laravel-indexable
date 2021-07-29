@@ -10,15 +10,23 @@
             @if($create)
                 <a href="{{route($resource.'.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Dodaj nowy element</a>
             @endif
+            @isset($actions)
+                    <div class="dropdown show d-sm-inline-block ">
+                        <a class="btn btn-secondary btn-sm shadow-sm dropdown-toggle" href="#" role="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cog fa-sm text-white-50"></i>
+                            Operacje
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownActions">
+                            {{$actions}}
+                        </div>
+                    </div>
+
+            @endisset
             @if($tableFilters)
-                <button type="submit" form="filters_form" class="d-inline-block btn btn-sm btn-primary shadow-sm">
-                    <i class="fas fa-filter fa-sm text-white-50"></i>
-                    Filtruj dane
-                </button>
-                <a href="{{url()->current()}}" class="d-inline-block btn btn-sm btn-danger shadow-sm">
-                    <i class="fas fa-times-circle fa-sm text-white-50"></i>
-                    Wyczyść filtry
-                </a>
+                <div class="d-sm-inline-block">
+                    <x-stored-table-filters :modelName="$modelName" :model="$items[0] ?? null" route="{{$resource.'.index'}}" />
+                </div>
             @endif
         </div>
 

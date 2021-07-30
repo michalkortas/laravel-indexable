@@ -74,9 +74,11 @@
 @push('scripts')
     <script>
         (function() {
-            document.querySelector('.table-wait').classList.add('d-none');
-            document.querySelector('.table-wait').classList.remove('d-flex');
-            document.querySelector('.table-data').classList.remove('d-none');
+            if(document.querySelector('.table-wait') !== null) {
+                document.querySelector('.table-wait').classList.add('d-none');
+                document.querySelector('.table-wait').classList.remove('d-flex');
+                document.querySelector('.table-data').classList.remove('d-none');
+            }
         })();
     </script>
 @endpush

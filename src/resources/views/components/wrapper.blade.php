@@ -8,13 +8,14 @@
     <div class="d-flex justify-content-end">
         <div>
             @if($create)
-                <a href="{{route($resource.'.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Dodaj nowy element</a>
+                <a href="{{route($resource.'.create')}}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
+                    {{__('Dodaj nowy element')}}</a>
             @endif
             @isset($actions)
                     <div class="dropdown show d-sm-inline-block ">
                         <a class="btn btn-secondary btn-sm shadow-sm dropdown-toggle" href="#" role="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-cog fa-sm text-white-50"></i>
-                            Operacje
+                            {{__('Operacje')}}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownActions">
@@ -42,9 +43,9 @@
         <div class="table-wait w-100 h-100 d-flex justify-content-center align-items-center">
             <div class="text-center">
                 <div class="spinner-border text-primary mb-2 font-weight-bold"  style="width: 5rem; height: 5rem;" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only">{{__('Ładowanie...')}}</span>
                 </div>
-                <p>Proszę czekać.<br>Trwa ładowanie danych...</p>
+                <p>{{__('Proszę czekać')}}.<br>{{__('Trwa ładowanie danych...')}}</p>
             </div>
 
         </div>

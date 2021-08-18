@@ -17,12 +17,12 @@
                 @if($currentStep)
                     <span class="badge badge-success px-2 py-2">
                         <i class="fas fa-check-circle mr-1"></i>
-                        Tak
+                        {{__('Tak')}}
                     </span>
                 @else
                     <span class="badge badge-danger px-2 py-2">
                         <i class="fas fa-times-circle mr-1"></i>
-                        Nie
+                        {{__('Nie')}}
                     </span>
                 @endif
             @else

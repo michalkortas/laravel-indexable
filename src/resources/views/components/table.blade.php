@@ -46,27 +46,27 @@
                 <tr>
                     @if($fullscreen)
                     <td class="td-actions">
-                        <div class="btn-toolbar" role="toolbar" aria-label="Możliwe akcje">
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Możliwe akcje">
+                        <div class="btn-toolbar" role="toolbar" aria-label="{{__('Możliwe akcje')}}">
+                            <div class="btn-group btn-group-sm" role="group" aria-label="{{__('Możliwe akcje')}}">
 
                                 @if(Route::has($resource .'.show'))
                                     <a href="{{route($resource .'.show', [$item])}}" class="btn btn-primary shadow-sm">
                                         <i class="far fa-eye"></i>
-                                        Zobacz
+                                        {{__('Zobacz')}}
                                     </a>
                                 @endif
 
                                 @if(Route::has($resource .'.edit'))
                                     <a href="{{route($resource .'.edit', [$item])}}" class="btn btn-info shadow-sm">
                                         <i class="fas fa-edit"></i>
-                                        Edytuj
+                                        {{__('Edytuj')}}
                                     </a>
                                 @endif
 
                                 @if(Route::has($resource .'.destroy'))
                                     <button type="button" data-id="{{$item->id}}" data-table="{{$resource}}" data-toggle="modal" data-target="#confirmDeleteModal" class="btn btn-danger shadow-sm">
                                         <i class="fas fa-trash-alt"></i>
-                                        Usuń
+                                        {{__('Usuń')}}
                                     </button>
                                 @endif
                             </div>
@@ -101,5 +101,7 @@
 
 @component('components.confirmDeleteModal') @endcomponent
 @else
-    <div class="alert alert-info m-3"><strong>Nie znaleziono</strong> żadnych danych w tej bazie.</div>
+    <div class="alert alert-info m-3">
+        {{__('Nie znaleziono danych w tej bazie')}}.
+    </div>
 @endif

@@ -63,7 +63,6 @@ class TableFilterScope implements Scope
                     });
                 }
                 else {
-                    ray($relation, $value);
                     if (is_numeric($value)) {
                         $builder->where($relation, $value);
                     } else {

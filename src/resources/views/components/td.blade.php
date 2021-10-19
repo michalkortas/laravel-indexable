@@ -1,6 +1,6 @@
 @if(array_key_exists($path, $columns))
     @if(substr($path, 0, 1) === '@')
-        <x-dynamic-component :component="'index.special.'.ltrim($path, '@')" :item="$item" />
+        <x-dynamic-component :component="'Index.Special.'.ltrim($path, '@')" :item="$item" />
     @else
 
         @php($currentStep = data_get($item, $path) ?? '---')

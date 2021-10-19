@@ -32,7 +32,7 @@
         </div>
 
         <div>
-            <x-index.pagination :attributes="$attributes" />
+            <x-Index.pagination :attributes="$attributes" />
         </div>
     </div>
     @endif

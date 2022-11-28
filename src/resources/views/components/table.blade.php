@@ -91,7 +91,7 @@
         </table>
 </form>
 
-
+@stack('outsideForm')
 
 <div class="px-4 py-3 @if(!$fullscreen) d-none @endif">
     @if($items instanceof \Illuminate\Pagination\LengthAwarePaginator )

@@ -40,39 +40,63 @@ class TableFilterScope implements Scope
 
         foreach($filters as $relation => $value)
         {
-            if($value !== null && array_key_exists($relation, $this->getColumns($model->indexable)) && (is_object($model) && $modelName === get_class($model)))
-            {
-                $relationNames=explode( '.', $relation);
+            if(is_array($value)) {
+                if(array_key_exists('from', $value) && array_key_exists('to', $value)) {
+                    if($value !== null && array_key_exists($relation, $this->getColumns($model->indexable)) && (is_object($model) && $modelName === get_class($model)))
+                    {
+                        $relationNames=explode( '.', $relation);
 
-                if(count($relationNames) > 1)
-                {
-                    $columnName = end($relationNames);
+                        if(count($relationNames) > 1)
+                        {
+                            $columnName = end($relationNames);
 
-                    $relationName = implode(".", array_slice($relationNames, 0, -1));
+                            $relationName = implode(".", array_slice($relationNames, 0, -1));
 
-                    $builder->whereHas($relationName, function ($q) use($value, $columnName){
-                        if(is_numeric($value)) {
-                            $q->where($columnName, $value);
+                            $builder->whereHas($relationName, function ($q) use($value, $columnName){
+                                $q->whereBetween($columnName, [$value['from'], $value['to']]);
+                            });
                         }
-                        else{
-                            if(in_array($columnName, ($model->strictSearch ?? [])))
-                                $q->where($columnName, 'like', $value);
-                            else
-                                $q->where($columnName, 'like', "%".$value."%");
+                        else {
+                            $builder->whereBetween($relation, [$value['from'], $value['to']]);
                         }
-                    });
+                    }
                 }
-                else {
-                    if (is_numeric($value)) {
-                        $builder->where($relation, $value);
-                    } else {
-                        if(in_array($relation, ($model->strictSearch ?? [])))
-                            $builder->where($relation, 'like', $value);
-                        else
-                            $builder->where($relation, 'like', "%".$value."%");
+            } else {
+                if($value !== null && array_key_exists($relation, $this->getColumns($model->indexable)) && (is_object($model) && $modelName === get_class($model)))
+                {
+                    $relationNames=explode( '.', $relation);
+
+                    if(count($relationNames) > 1)
+                    {
+                        $columnName = end($relationNames);
+
+                        $relationName = implode(".", array_slice($relationNames, 0, -1));
+
+                        $builder->whereHas($relationName, function ($q) use($value, $columnName){
+                            if(is_numeric($value)) {
+                                $q->where($columnName, $value);
+                            }
+                            else{
+                                if(in_array($columnName, ($model->strictSearch ?? [])))
+                                    $q->where($columnName, 'like', $value);
+                                else
+                                    $q->where($columnName, 'like', "%".$value."%");
+                            }
+                        });
+                    }
+                    else {
+                        if (is_numeric($value)) {
+                            $builder->where($relation, $value);
+                        } else {
+                            if(in_array($relation, ($model->strictSearch ?? [])))
+                                $builder->where($relation, 'like', $value);
+                            else
+                                $builder->where($relation, 'like', "%".$value."%");
+                        }
                     }
                 }
             }
+
         }
     }
 }

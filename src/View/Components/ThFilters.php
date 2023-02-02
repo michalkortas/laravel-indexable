@@ -13,19 +13,29 @@ class ThFilters extends Component
     public $tableFilters;
     public $name;
     public $requestFilters;
+    public $rangeFilters;
+    public $typeFilters;
     public $path;
+    public $isRangeFilter;
+    public $filterType;
 
     public function __construct(
         $tableFilters = false,
         $name = '',
         $requestFilters = [],
+        $rangeFilters = [],
+        $typeFilters = [],
         $path = ''
     )
     {
         $this->tableFilters = $tableFilters;
         $this->name = $name;
         $this->requestFilters = $requestFilters;
+        $this->rangeFilters = $rangeFilters;
+        $this->typeFilters = $typeFilters;
         $this->path = $path;
+        $this->isRangeFilter = array_key_exists($path, $this->rangeFilters);
+        $this->filterType = array_key_exists($path, $this->typeFilters) ? $this->typeFilters[$path] : 'text';
     }
 
     /**

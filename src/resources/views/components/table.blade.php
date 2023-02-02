@@ -16,6 +16,8 @@
                     @else
                         <x-indexable-th-filters
                             :tableFilters="$tableFilters"
+                            :rangeFilters="$rangeFilters"
+                            :typeFilters="$typeFilters"
                             :requestFilters="$requestFilters"
                             :name="$name"
                             :path="$path"/>
@@ -33,6 +35,8 @@
                         @foreach($name ?? [] as $subPath => $subName)
                             <x-indexable-th-filters
                                 :tableFilters="$tableFilters"
+                                :rangeFilters="$rangeFilters"
+                                :typeFilters="$typeFilters"
                                 :requestFilters="$requestFilters"
                                 :name="$subName"
                                 :path="$subPath"/>

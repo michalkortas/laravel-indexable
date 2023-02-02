@@ -17,6 +17,8 @@ class Table extends Component
     public $modelName;
     public $indexable;
     public $tableFilters;
+    public $rangeFilters;
+    public $typeFilters;
     public $requestFilters;
     public $twoDimensionalHeader;
     public $actionButtons;
@@ -28,6 +30,8 @@ class Table extends Component
         $items = [],
         $indexable = [],
         $tableFilters = false,
+        $rangeFilters = [],
+        $typeFilters = [],
         $actionButtons = false,
         $fullscreen = false,
         $resource = ''
@@ -36,6 +40,8 @@ class Table extends Component
         $this->model = $model;
         $this->modelName = $modelName;
         $this->items = $items;
+        $this->rangeFilters = $rangeFilters;
+        $this->typeFilters = $typeFilters;
         $this->resource = $resource;
         $this->columns = $this->getColumns($indexable);
         $this->indexable = $indexable;

@@ -20,6 +20,8 @@ class Wrapper extends Component
     public $actionButtons;
     public $indexable;
     public $model;
+    public $rangeFilters;
+    public $typeFilters;
     public $modelName;
     public $fullscreen;
 
@@ -45,6 +47,8 @@ class Wrapper extends Component
         $this->actionButtons = $actionButtons;
         $this->items = $items;
         $this->model = $this->getModel($this->items);
+        $this->rangeFilters = $this->getRangeFilters($this->model);
+        $this->typeFilters = $this->getTypeFilters($this->model);
         $this->modelName = $this->getModelName($this->model);
         $this->indexable = $this->getIndexable($this->model);
         $this->title = $title ?? $this->model->indexTitle ?? '';
@@ -79,6 +83,20 @@ class Wrapper extends Component
     private function getIndexable($model) {
         if(!empty($model) && !empty($model->indexable))
             return $model->indexable;
+
+        return [];
+    }
+
+    private function getRangeFilters($model) {
+        if(!empty($model) && !empty($model->rangeFilters))
+            return $model->rangeFilters;
+
+        return [];
+    }
+
+    private function getTypeFilters($model) {
+        if(!empty($model) && !empty($model->typeFilters))
+            return $model->typeFilters;
 
         return [];
     }

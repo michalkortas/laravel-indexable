@@ -53,6 +53,8 @@
         <div class="table-data @if($fullscreen) d-none @endif">
             <x-indexable-table
                 :model="$model"
+                :rangeFilters="$rangeFilters"
+                :typeFilters="$typeFilters"
                 :modelName="$modelName"
                 :resource="$resource"
                 :items="$items"

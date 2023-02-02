@@ -18,6 +18,7 @@ class ThFilters extends Component
     public $path;
     public $isRangeFilter;
     public $filterType;
+    public $filterLabels;
 
     public function __construct(
         $tableFilters = false,
@@ -25,6 +26,7 @@ class ThFilters extends Component
         $requestFilters = [],
         $rangeFilters = [],
         $typeFilters = [],
+        $filterLabels = [],
         $path = ''
     )
     {
@@ -36,6 +38,20 @@ class ThFilters extends Component
         $this->path = $path;
         $this->isRangeFilter = array_key_exists($path, $this->rangeFilters);
         $this->filterType = array_key_exists($path, $this->typeFilters) ? $this->typeFilters[$path] : 'text';
+        $this->filterLabels = $this->getFilterLabels();
+    }
+
+    public function getFilterLabels() {
+        if(!$this->isRangeFilter) {
+            return [
+                'strict' => 'Wpisz szukaną frazę'
+            ];
+        } else {
+            return [
+                'from' => $this->rangeFilters[$this->path][0] ?? 'Od',
+                'to' => $this->rangeFilters[$this->path][0] ?? 'Do',
+            ];
+        }
     }
 
     /**

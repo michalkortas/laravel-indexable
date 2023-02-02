@@ -15,12 +15,13 @@ class Td extends Component
     public $columns;
     public $loop;
     public $resource;
-    public $actionButtons;
+    public $typeFilters;
 
     public function __construct(
         $item = [],
         $path = '',
         $columns = [],
+        $typeFilters = [],
         $loop = null,
         $resource = '',
         $actionButtons = false
@@ -29,6 +30,7 @@ class Td extends Component
         $this->item = $item;
         $this->path = $path;
         $this->columns = $columns;
+        $this->typeFilters = $typeFilters;
         $this->loop = $loop;
         $this->resource = $resource;
         $this->actionButtons = $actionButtons;

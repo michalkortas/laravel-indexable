@@ -26,7 +26,11 @@
                     </span>
                 @endif
             @else
-                {{ $currentStep }}
+                @if(array_key_exists($path, $typeFilters) && $typeFilters[$path] === 'date')
+                    {{ \Carbon\Carbon::make($currentStep)->format('Y-m-d') }}
+                @else
+                    {{ $currentStep }}
+                @endif
             @endif
 
             @if(($actionButtons ?? true) && $loop->first)

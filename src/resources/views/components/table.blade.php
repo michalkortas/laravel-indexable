@@ -85,6 +85,7 @@
                             :path="$path"
                             :loop="$loop"
                             :resource="$resource"
+                            :typeFilters="$typeFilters"
                             :actionButtons="$actionButtons"/>
                     @endforeach
 

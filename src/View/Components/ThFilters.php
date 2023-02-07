@@ -17,8 +17,11 @@ class ThFilters extends Component
     public $typeFilters;
     public $path;
     public $isRangeFilter;
+    public $isBooleanFilter;
     public $filterType;
     public $filterLabels;
+    public $isEmpty;
+    public $booleanOptions;
 
     public function __construct(
         $tableFilters = false,
@@ -37,8 +40,15 @@ class ThFilters extends Component
         $this->typeFilters = $typeFilters;
         $this->path = $path;
         $this->isRangeFilter = array_key_exists($path, $this->rangeFilters);
+        $this->isBooleanFilter = ($this->typeFilters[$path] ?? '') === 'boolean';
         $this->filterType = array_key_exists($path, $this->typeFilters) ? $this->typeFilters[$path] : 'text';
         $this->filterLabels = $this->getFilterLabels();
+        $this->isEmpty = $this->isEmpty();
+        $this->booleanOptions = [
+            null => 'wszystko',
+            0 => 'Nie',
+            1 => 'Tak',
+        ];
     }
 
     public function getFilterLabels() {
@@ -52,6 +62,16 @@ class ThFilters extends Component
                 'to' => $this->rangeFilters[$this->path][0] ?? 'Do',
             ];
         }
+    }
+
+    public function isEmpty():bool {
+        if(!$this->isRangeFilter) {
+            return empty($this->requestFilters[$this->path] ?? '');
+        } else {
+            return empty($this->requestFilters[$this->path]['from'] ?? '') && empty($this->requestFilters[$this->path]['to'] ?? '');
+        }
+
+        return true;
     }
 
     /**

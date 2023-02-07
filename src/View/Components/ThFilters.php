@@ -52,14 +52,19 @@ class ThFilters extends Component
     }
 
     public function getFilterLabels() {
-        if(!$this->isRangeFilter) {
-            return [
-                'strict' => 'Wpisz szukaną frazę'
-            ];
-        } else {
+        if($this->isRangeFilter) {
             return [
                 'from' => $this->rangeFilters[$this->path][0] ?? 'Od',
                 'to' => $this->rangeFilters[$this->path][0] ?? 'Do',
+            ];
+        }
+        elseif($this->isBooleanFilter) {
+            return [
+                'strict' => 'Wybierz jedną z opcji'
+            ];
+        } else {
+            return [
+                'strict' => 'Wpisz szukaną frazę'
             ];
         }
     }

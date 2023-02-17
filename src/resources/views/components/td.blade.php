@@ -27,7 +27,7 @@
                 @endif
             @else
                 @if(array_key_exists($path, $typeFilters) && $typeFilters[$path] === 'date')
-                    {{ \Carbon\Carbon::make($currentStep)->format('Y-m-d') }}
+                    {{ \Carbon\Carbon::make($currentStep)?->format('Y-m-d') }}
                 @else
                     {{ $currentStep }}
                 @endif

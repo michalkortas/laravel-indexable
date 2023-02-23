@@ -23,6 +23,7 @@ class Table extends Component
     public $twoDimensionalHeader;
     public $actionButtons;
     public $fullscreen;
+    public $withCheckbox;
 
     public function __construct(
         $model = [],
@@ -34,6 +35,7 @@ class Table extends Component
         $typeFilters = [],
         $actionButtons = false,
         $fullscreen = false,
+        $withCheckbox = false,
         $resource = ''
     )
     {
@@ -50,6 +52,7 @@ class Table extends Component
         $this->requestFilters = \request()->only('tableFilters')['tableFilters'] ?? [];
         $this->actionButtons = $actionButtons;
         $this->fullscreen = $fullscreen;
+        $this->withCheckbox = $withCheckbox;
     }
 
     /**

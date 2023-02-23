@@ -6,7 +6,9 @@
 
         <table class="table table-hover table-borderless table-sticky @if(!$fullscreen) mb-0 @endif">
             <thead class="thead-dark thead-sticky">
-            <tr>
+            <tr>@if($withCheckbox)
+                    <th></th>
+                @endif
                 @if($fullscreen)
                 <th></th>
                 @endif
@@ -27,6 +29,9 @@
             </thead>
             @if($twoDimensionalHeader)
                 <thead class="thead-dark thead-sticky">
+                @if($withCheckbox)
+                    <th></th>
+                @endif
                 @if($fullscreen)
                 <th></th>
                 @endif
@@ -48,6 +53,12 @@
             <tbody>
             @foreach($items ?? [] as $item)
                 <tr>
+                    @if($withCheckbox)
+                    <td class="td-actions">
+                       <input type="checkbox" data-type="selectedRows" data-resource="{{$resource}}" name="selectedRows[{{$resource}}][]" value="{{$item->id}}"  />
+                    </td>
+                    @endif
+
                     @if($fullscreen)
                     <td class="td-actions">
                         <div class="btn-toolbar" role="toolbar" aria-label="{{__('Możliwe akcje')}}">

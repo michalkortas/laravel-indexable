@@ -62,6 +62,7 @@
                 :indexable="$indexable"
                 :actionButtons="$actionButtons"
                 :fullscreen="$fullscreen"
+                :withCheckbox="$withCheckbox ?? false"
                 >
 
                 @isset($actions)

@@ -21,17 +21,20 @@ class TableFilterScope implements Scope
         foreach($indexable ?? [] as $key => $value) {
             if(is_numeric($key) && !empty($value['key'])) {
                 $key = $value['key'] ;
-            }
-
-            if(is_array($value)) {
-                foreach ($value ?? [] as $subKey => $subValue) {
-                    $columns[$subKey] = $subValue;
+                $columns[$key] = $value;
+            } else {
+                if(is_array($value)) {
+                    foreach ($value ?? [] as $subKey => $subValue) {
+                        $columns[$subKey] = $subValue;
+                    }
+                }
+                else {
+                    $columns[$key] = $value;
                 }
             }
-            else {
-                $columns[$key] = $value;
-            }
+
         }
+
         return $columns;
     }
 

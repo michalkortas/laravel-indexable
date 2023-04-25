@@ -19,6 +19,10 @@ class TableFilterScope implements Scope
         $columns = [];
 
         foreach($indexable ?? [] as $key => $value) {
+            if(is_numeric($key) && !empty($value['key'])) {
+                $key = $value['key'] ;
+            }
+
             if(is_array($value)) {
                 foreach ($value ?? [] as $subKey => $subValue) {
                     $columns[$subKey] = $subValue;

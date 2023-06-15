@@ -50,7 +50,7 @@ class TableFilterScope implements Scope
         {
             if(is_array($value)) {
                 if(array_key_exists('from', $value) && array_key_exists('to', $value) && !empty($value['from']) && !empty($value['to'])) {
-                    if($value !== null && (($model->indexableAll ?? false) || empty($this->getColumns($model->indexable)) || array_key_exists($relation, $this->getColumns($model->indexable))) && (is_object($model) && $modelName === get_class($model)))
+                    if($value !== null && (($model->indexableAll ?? false) || empty($this->getColumns($model->indexable ?? [])) || array_key_exists($relation, $this->getColumns($model->indexable ?? []))) && (is_object($model) && $modelName === get_class($model)))
                     {
                         $relationNames=explode( '.', $relation);
 
@@ -70,7 +70,7 @@ class TableFilterScope implements Scope
                     }
                 }
             } else {
-                if($value !== null && (($model->indexableAll ?? false) || empty($this->getColumns($model->indexable)) || array_key_exists($relation, $this->getColumns($model->indexable))) && (is_object($model) && $modelName === get_class($model)))
+                if($value !== null && (($model->indexableAll ?? false) || empty($this->getColumns($model->indexable ?? [])) || array_key_exists($relation, $this->getColumns($model->indexable ?? []))) && (is_object($model) && $modelName === get_class($model)))
                 {
                     $relationNames=explode( '.', $relation);
 

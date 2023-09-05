@@ -25,6 +25,7 @@ class Wrapper extends Component
     public $modelName;
     public $fullscreen;
     public $withCheckbox;
+    public $policies;
 
     public function __construct(
         $title = '',
@@ -38,7 +39,8 @@ class Wrapper extends Component
         $requestFilters = [],
         $modelName = [],
         $fullscreen = true,
-        $withCheckbox = false
+        $withCheckbox = false,
+        $policies = false,
     )
     {
         $this->create = $create;
@@ -57,6 +59,7 @@ class Wrapper extends Component
         $this->description = $description ?? $this->model->indexDescription ?? '';
         $this->fullscreen = $fullscreen;
         $this->withCheckbox = $withCheckbox;
+        $this->policies = $policies;
     }
 
     /**

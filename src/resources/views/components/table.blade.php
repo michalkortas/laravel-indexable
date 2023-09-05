@@ -64,21 +64,21 @@
                         <div class="btn-toolbar" role="toolbar" aria-label="{{__('Możliwe akcje')}}">
                             <div class="btn-group btn-group-sm" role="group" aria-label="{{__('Możliwe akcje')}}">
 
-                                @if(Route::has($resource .'.show'))
+                                @if(Route::has($resource .'.show') && (!$policies || ($policies && auth()->user()->can('view', $item))))
                                     <a href="{{route($resource .'.show', [$item])}}" class="btn btn-primary shadow-sm">
                                         <i class="far fa-eye"></i>
                                         {{__('Zobacz')}}
                                     </a>
                                 @endif
 
-                                @if(Route::has($resource .'.edit'))
+                                @if(Route::has($resource .'.edit') && (!$policies || ($policies && auth()->user()->can('update', $item))))
                                     <a href="{{route($resource .'.edit', [$item])}}" class="btn btn-info shadow-sm">
                                         <i class="fas fa-edit"></i>
                                         {{__('Edytuj')}}
                                     </a>
                                 @endif
 
-                                @if(Route::has($resource .'.destroy'))
+                                @if(Route::has($resource .'.destroy') && (!$policies || ($policies && auth()->user()->can('delete', $item))))
                                     <button type="button" data-id="{{$item->id}}" data-table="{{$resource}}" data-toggle="modal" data-target="#confirmDeleteModal" class="btn btn-danger shadow-sm">
                                         <i class="fas fa-trash-alt"></i>
                                         {{__('Usuń')}}

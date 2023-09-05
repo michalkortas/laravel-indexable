@@ -24,6 +24,7 @@ class Table extends Component
     public $actionButtons;
     public $fullscreen;
     public $withCheckbox;
+    public $policies;
 
     public function __construct(
         $model = [],
@@ -36,6 +37,7 @@ class Table extends Component
         $actionButtons = false,
         $fullscreen = false,
         $withCheckbox = false,
+        $policies = false,
         $resource = ''
     )
     {
@@ -53,6 +55,7 @@ class Table extends Component
         $this->actionButtons = $actionButtons;
         $this->fullscreen = $fullscreen;
         $this->withCheckbox = $withCheckbox;
+        $this->policies = $policies;
     }
 
     /**

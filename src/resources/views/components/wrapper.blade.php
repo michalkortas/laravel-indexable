@@ -63,6 +63,7 @@
                 :actionButtons="$actionButtons"
                 :fullscreen="$fullscreen"
                 :withCheckbox="$withCheckbox ?? false"
+                :policies="$policies ?? false"
                 >
 
                 @isset($actions)
